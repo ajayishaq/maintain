@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>bayy.ty — Early Access</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --green: #00C853;
+    --green-dark: #00A043;
+    --green-deeper: #007A30;
+    --green-pale: #E8FFF0;
+    --green-mid: #B2F5CC;
+    --white: #FFFFFF;
+    --text-dark: #0A2E17;
+    --text-mid: #2D6B44;
+  }
+
+  html, body {
+    width: 100%; min-height: 100vh;
+    background: var(--white);
+    font-family: 'DM Sans', sans-serif;
+    color: var(--text-dark);
+    overflow-x: hidden;
+  }
+
+  .page {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+  }
+
+  .card {
+    background: rgba(255,255,255,0.9);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(0,200,83,0.2);
+    border-radius: 24px;
+    padding: 48px 32px;
+    max-width: 520px;
+    width: 100%;
+    text-align: center;
+    box-shadow: 0 10px 40px rgba(0,200,83,0.1);
+  }
+
+  .badge {
+    display: inline-block;
+    background: var(--green-pale);
+    color: var(--green-deeper);
+    padding: 6px 14px;
+    border-radius: 100px;
+    font-size: 12px;
+    margin-bottom: 16px;
+  }
+
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    margin-bottom: 16px;
+  }
+
+  h1 span { color: var(--green); }
+
+  .subtitle {
+    font-size: 15px;
+    color: var(--text-mid);
+    margin-bottom: 28px;
+    line-height: 1.6;
+  }
+
+  .features {
+    text-align: left;
+    margin-bottom: 28px;
+    font-size: 14px;
+    color: var(--text-dark);
+  }
+
+  .features div {
+    margin-bottom: 10px;
+  }
+
+  .input-row {
+    display: flex;
+    gap: 8px;
+  }
+
+  input {
+    flex: 1;
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+  }
+
+  button {
+    padding: 12px 18px;
+    border: none;
+    background: var(--green);
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+
+  .success {
+    display: none;
+    margin-top: 12px;
+    color: var(--green-deeper);
+    font-size: 14px;
+  }
+
+  .footer {
+    margin-top: 20px;
+    font-size: 12px;
+    color: #9ABFAB;
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <div class="card">
+
+    <div class="badge">Early Access</div>
+
+    <h1>Find verified homes <br><span>across Egypt</span></h1>
+
+    <p class="subtitle">
+      No fake listings. No wasted time.<br>
+      Just real homes, real prices, and smarter search.
+    </p>
+
+    <div class="features">
+      <div>• Browse verified apartments only</div>
+      <div>• See real prices — no agent inflation</div>
+      <div>• Explore neighborhoods before you visit</div>
+    </div>
+
+    <div class="input-row">
+      <input type="email" id="email" placeholder="Enter your email">
+      <button onclick="join()">Join Early Access</button>
+    </div>
+
+    <div class="success" id="success">You're on the list. We'll notify you first.</div>
+
+    <div class="footer">Contact: hello@bayyty.com</div>
+
+  </div>
+
+</div>
+
+<script>
+function join(){
+  const email = document.getElementById('email');
+  const success = document.getElementById('success');
+
+  if(!email.value.includes('@')){
+    email.style.borderColor = 'red';
+    return;
+  }
+
+  email.style.display = 'none';
+  document.querySelector('button').style.display = 'none';
+  success.style.display = 'block';
+}
+</script>
+
+</body>
+</html>
